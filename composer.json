@@ -1,0 +1,14 @@
+{
+    "name": "dakzilla/strongpass",
+    "description": "Strong password generator for Laravel 5",
+    "type": "library",
+    "license": "MIT",
+    "version": "1.0",
+    "authors": [
+        {
+            "name": "Simon Dakin",
+            "email": "hello@simondakin.com"
+        }
+    ],
+    "require": {}
+}
