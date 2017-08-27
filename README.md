@@ -9,10 +9,10 @@ Then, add the following line to the `providers` element of your `config/app.php`
 `Dakzilla\Strongpass\StrongpassServiceProvider::class`
 
 ## Usage
-Use dependency injection to receive an instance of `Dakzilla\Strongpass` in your class, as such:
+Use dependency injection to receive an instance of `Dakzilla\Strongpass\Strongpass` in your class, as such:
 
 ```
-use Dakzilla\Strongpass;
+use Dakzilla\Strongpass\Strongpass;
 
 class MyClass {
 
