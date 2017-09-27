@@ -25,12 +25,16 @@ class StrongpassServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        \App::bind('strongpass', function () {
+            return new Strongpass();
+        });
+
         $this->app->singleton(Strongpass::class, function ($app) {
-            return new Strongpass(config('strongpass'));
+            return new Strongpass();
         });
 
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/package.php', 'strongpass'
+            __DIR__ . '/../config/package.php', 'Facade'
         );
     }
 }

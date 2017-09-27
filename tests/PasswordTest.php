@@ -11,13 +11,15 @@ class PasswordTest extends TestCase
 
     public function setUp()
     {
-        $this->strongpass = new Strongpass([
-            'length' => 16,
-            'use_letters' => true,
-            'use_numbers' => true,
-            'use_symbols' => true
-        ]);
         parent::setUp();
+
+        $this->strongpass = new Strongpass();
+
+        $this->strongpass
+            ->setLength(16)
+            ->setUseLetters(true)
+            ->setUseNumbers(true)
+            ->setUseSymbols(true);
     }
 
     public function testString()
@@ -51,8 +53,7 @@ class PasswordTest extends TestCase
         $this->assertNotRegExp('/[{}\[\]()\/\'"`~,;:.<>]/', $this->strongpass->generate());
     }
 
-    public function testWrongConfig()
-    {
+    public function testWrongConfig()    {
         $this->strongpass
             ->setUseLetters(false)
             ->setUseNumbers(false)

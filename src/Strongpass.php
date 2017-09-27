@@ -14,33 +14,31 @@ class Strongpass
     private static $symbols = ['{', '}', '[', ']', '(', ')', '/', '\\', '\'', '"', '`', '~', ',', ';', ':', '.', '<', '>'];
 
     /** @var string */
-    protected $lastpass;
-
-    /** @var int */
-    protected $length;
-
-    /** @var bool */
-    protected $useLetters;
-
-    /** @var bool */
-    protected $useSymbols;
-
-    /** @var bool */
-    protected $useNumbers;
+    private $lastpass;
 
     /** @var array */
     private $characterSets;
 
+    /** @var int */
+    private $length;
+
+    /** @var bool */
+    private $useLetters;
+
+    /** @var bool */
+    private $useSymbols;
+
+    /** @var bool */
+    private $useNumbers;
+
     /**
      * Strongpass constructor.
-     * @param array $config
      */
-    public function __construct(
-        array $config
-    )
+    public function __construct()
     {
-        $this
-            ->setLength($config['length'])
+        $config = config('strongpass');
+
+        $this->setLength($config['length'])
             ->setUseLetters($config['use_letters'])
             ->setUseNumbers($config['use_numbers'])
             ->setUseSymbols($config['use_symbols']);
@@ -132,7 +130,7 @@ class Strongpass
      * @param string $lastpass
      * @return $this
      */
-    public function setLastpass(string $lastpass)
+    private function setLastpass(string $lastpass)
     {
         $this->lastpass = $lastpass;
 
