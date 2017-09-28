@@ -34,7 +34,7 @@ class StrongpassServiceProvider extends ServiceProvider
         });
 
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/package.php', 'Facade'
+            __DIR__ . '/../config/package.php', 'strongpass'
         );
     }
 }
